@@ -8,9 +8,9 @@
     {% endif %}
     <form method="POST" enctype="multipart/form-data">
         {{ form.hidden_tag() }}
-        {{ form.file() }}
-        {{ form.sentences.label }} {{ form.sentences() }}
-        {{ form.number.label }} {{ form.number() }}
+        {{ form.file() }} <br>
+        {{ form.sentences.label }} {{ form.sentences() }} <br>
+        {{ form.number.label }} {{ form.number() }} <br>
         <input type='submit' value='Submit'>
     </form>
 {% endblock %}
