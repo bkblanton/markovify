@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Markov generator{% endblock %}
+{% block body %}
+    {% include "upload.html" %}
+    {% block outputs %}
+        <div id="outputs">
+            {% if outputs %}
+                {% for output in outputs %}
+                    <p>{{ output }}</p>
+                {% endfor %}
+            {% endif %}
+        </div>
+    {% endblock %}
+{% endblock %}

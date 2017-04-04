@@ -1,0 +1,16 @@
+{% block upload %}
+    {% if form.errors %}
+        <ul class=errors>
+        {% for field in form.errors %}
+            <li>{{ form.errors[field][0] }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        {{ form.file() }}
+        {{ form.sentences.label }} {{ form.sentences() }}
+        {{ form.number.label }} {{ form.number() }}
+        <input type='submit' value='Submit'>
+    </form>
+{% endblock %}
