@@ -10,7 +10,7 @@ def home():
     form = TextFileForm()
     if form.validate_on_submit():
         file = form.file.data
-        markov = Markov.from_lines(line.decode('utf-8') for line in file.stream.readlines())
+        markov = Markov.from_lines(line.decode('utf-8', errors='ignore') for line in file.stream.readlines())
         outputs = []
         for _ in range(form.number.data):
             output = ' '.join(markov.generate(n=form.sentences.data))
