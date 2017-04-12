@@ -1,14 +1,22 @@
 {% extends "base.html" %}
-{% block title %}Markov generator{% endblock %}
+{% block title %}Markovify{% endblock %}
 {% block body %}
-    {% include "upload.html" %}
-    {% block outputs %}
-        <div id="outputs">
-            {% if outputs %}
-                {% for output in outputs %}
-                    <p>{{ output }}</p>
-                {% endfor %}
-            {% endif %}
+    <div class="container">
+        <div class="page-header">
+            <h1>Markovify</h1>
         </div>
-    {% endblock %}
+        {% include "forms/upload.html" %}
+        {% block outputs %}
+            {% if outputs %}
+                <hr>
+                <div id="outputs" class="panel-group">
+                    {% for output in outputs %}
+                        <div class="panel panel-default">
+                            <div class="panel-body">{{ output }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endblock %}
+    </div>
 {% endblock %}
