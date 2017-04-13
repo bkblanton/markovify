@@ -1,16 +1,18 @@
 {% block upload %}
-    {% if form.errors %}
-        <ul class="errors list-group">
-            {% for field in form.errors %}
-                <li class="list-group-item list-group-item-danger">{{ form.errors[field][0] }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-    <form method="POST">
-        {{ form.hidden_tag() }}
-        <div class="form-group row">{{ form.text.label }} {{ form.text(class="form-control col-12") }}</div>
-        <div class="form-group row">{{ form.sentences.label }} {{ form.sentences(class="form-control") }}</div>
-        <div class="form-group row">{{ form.number.label }} {{ form.number(class="form-control") }}</div>
-        <input class='btn btn-primary' type='submit' value='Submit'>
-    </form>
+    <div class="row">
+        {% if form.errors %}
+            <ul class="errors list-group">
+                {% for field in form.errors %}
+                    <li class="list-group-item list-group-item-danger">{{ form.errors[field][0] }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group col-sm-12">{{ form.text.label }} {{ form.text(class="form-control", style="resize: vertical;") }}</div>
+            <div class="form-group col-sm-6">{{ form.sentences.label }} {{ form.sentences(class="form-control") }}</div>
+            <div class="form-group col-sm-6">{{ form.number.label }} {{ form.number(class="form-control") }}</div>
+            <input class='btn btn-primary col-xs-12 col-sm-2 col-sm-offset-5' type='submit' value='Submit'>
+        </form>
+        </div>
 {% endblock %}
