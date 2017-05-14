@@ -1,1 +1,3 @@
-SECRET_KEY="fb8c4a63e9e3453a217930a7f3e63e53b0a5cadd81d5d58e"
+import os
+
+SECRET_KEY=os.environ.get('SECRET_KEY')
